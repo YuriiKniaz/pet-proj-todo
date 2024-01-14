@@ -1,7 +1,7 @@
-import React from "react";
-import list from "./ListItem.module.css";
-import { useSortable } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
+import React from 'react';
+import list from './ListItem.module.css';
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 
 const ListItem = ({ id, name, completed, handleRemove, handleCompleted }) => {
   const { attributes, listeners, setNodeRef, transform, transition } =

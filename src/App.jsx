@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
-import ListItem from "./Components/ListItem";
-import { nanoid } from "nanoid";
-import { DndContext } from "@dnd-kit/core";
-import { SortableContext } from "@dnd-kit/sortable";
-import app from "./App.module.css";
+import { useEffect, useState } from 'react';
+import ListItem from './components/ListItem';
+import { nanoid } from 'nanoid';
+import { DndContext } from '@dnd-kit/core';
+import { SortableContext } from '@dnd-kit/sortable';
+import app from './App.module.css';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
-  const [todoname, setTodoName] = useState("");
+  const [todoname, setTodoName] = useState('');
 
-  const handleNameChange = (e) => {
+  const handleNameChange = e => {
     const { value } = e.target;
     setTodoName(value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     if (!todoname || todoname.length < 3) {
-      return alert("Todo name must be larger");
+      return alert('Todo name must be larger');
     }
 
     const newTodos = [
@@ -32,24 +32,24 @@ const App = () => {
 
     setTodos(newTodos);
 
-    setTodoName("");
+    setTodoName('');
   };
 
-  const handleRemove = (id) => {
-    const filteredTodo = todos.filter((todo) => {
+  const handleRemove = id => {
+    const filteredTodo = todos.filter(todo => {
       return todo.id !== id;
     });
 
     setTodos(filteredTodo);
   };
 
-  const handleDragEnd = (e) => {
+  const handleDragEnd = e => {
     const { active, over } = e;
 
     if (active.id !== over.id) {
-      setTodos((items) => {
-        const oldIndex = items.findIndex((item) => item.id === active.id);
-        const newIndex = items.findIndex((item) => item.id === over.id);
+      setTodos(items => {
+        const oldIndex = items.findIndex(item => item.id === active.id);
+        const newIndex = items.findIndex(item => item.id === over.id);
 
         const newItems = [...items];
 
@@ -61,8 +61,8 @@ const App = () => {
     }
   };
 
-  const handleCompleted = (id) => {
-    const filteredTodo = todos.map((todo) => {
+  const handleCompleted = id => {
+    const filteredTodo = todos.map(todo => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
       }
@@ -74,13 +74,13 @@ const App = () => {
   };
 
   useEffect(() => {
-    const todosItem = JSON.parse(localStorage.getItem("userTodos")) ?? [];
+    const todosItem = JSON.parse(localStorage.getItem('userTodos')) ?? [];
 
     setTodos(todosItem);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("userTodos", JSON.stringify(todos));
+    localStorage.setItem('userTodos', JSON.stringify(todos));
   }, [todos]);
 
   return (
@@ -104,10 +104,10 @@ const App = () => {
       </form>
 
       <DndContext onDragEnd={handleDragEnd}>
-        <SortableContext items={todos.map((todo) => todo.id)}>
+        <SortableContext items={todos.map(todo => todo.id)}>
           {todos.length > 0 ? (
             <ul className={app.list}>
-              {todos.map((todo) => {
+              {todos.map(todo => {
                 const { id, name, completed } = todo;
                 return (
                   <ListItem
