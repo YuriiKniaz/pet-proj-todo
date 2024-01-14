@@ -1,0 +1,71 @@
+.listItem {
+  width: 904px;
+  height: 100%;
+  padding: 18px;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.taskWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btnCompleted {
+  border: none;
+  cursor: pointer;
+  background-color: #4dccbd;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  box-shadow: 3px 3px 5px 0px #164b6e;
+}
+
+.btnRemove {
+  border: none;
+  cursor: pointer;
+  background-color: #ff8484;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  box-shadow: 3px 3px 5px 0px #164b6e;
+}
+
+.active {
+  background-color: #4dccbd;
+}
+
+.unactive {
+  background-color: #2374ab;
+}
+
+.btnCompleted:hover,
+.btnCompleted:focus {
+  background-color: #3b9b90;
+  scale: 1.02;
+}
+.btnRemove:hover,
+.btnRemove:focus {
+  background-color: #ce6a6a;
+  scale: 1.02;
+}

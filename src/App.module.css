@@ -1,0 +1,71 @@
+.appWrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 32px;
+}
+
+.form {
+  background-color: #2374ab;
+  padding: 18px;
+  width: 900px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.inputWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.inputName {
+  width: 300px;
+  height: 24px;
+  border-radius: 5px;
+  border: none;
+  padding: 2px 5px;
+  outline: none;
+}
+
+.btn {
+  border: none;
+  border-radius: 5px;
+  padding: 6px;
+  background-color: #4dccbd;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid #fff;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #3b9b90;
+  scale: 1.02;
+}
+
+.list {
+  list-style: none;
+  margin-top: 32px;
+  padding: 18px;
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.empty {
+  text-align: center;
+  margin-top: 32px;
+  color: #2374ab;
+  font-size: 24px;
+  font-weight: 700;
+}
