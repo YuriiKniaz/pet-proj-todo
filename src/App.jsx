@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 import { DndContext } from '@dnd-kit/core';
 import { SortableContext } from '@dnd-kit/sortable';
 import app from './App.module.css';
+import Notiflix from 'notiflix';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -18,7 +19,7 @@ const App = () => {
     e.preventDefault();
 
     if (!todoname || todoname.length < 3) {
-      return alert('Todo name must be larger');
+      return Notiflix.Notify.failure('Todo name must be larger');
     }
 
     const newTodos = [
@@ -33,6 +34,8 @@ const App = () => {
     setTodos(newTodos);
 
     setTodoName('');
+
+    Notiflix.Notify.success('ToDo successfuly added');
   };
 
   const handleRemove = id => {
@@ -41,6 +44,7 @@ const App = () => {
     });
 
     setTodos(filteredTodo);
+    Notiflix.Notify.success('ToDo successfuly removed');
   };
 
   const handleDragEnd = e => {
@@ -71,6 +75,7 @@ const App = () => {
     });
 
     setTodos(filteredTodo);
+    Notiflix.Notify.success('ToDo completed, good job!');
   };
 
   useEffect(() => {
